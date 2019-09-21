@@ -17,7 +17,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <button onClick={() => setFoo(true)} >Use Foo</button>
-        {foo ? <Counter /> : <Counter foo="baz" />}
+        {!foo ? <Counter /> : <Counter foo="baz" />}
         <a
           className="App-link"
           href="https://reactjs.org"

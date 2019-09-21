@@ -18,14 +18,7 @@ class Counter extends React.Component {
             })
         }
     }
-    UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log(nextProps.foo, this.props.foo);
-        if (nextProps.foo !== this.props.foo) {
-            this.setState({
-                foo: nextProps.foo
-            })
-        }
-    }
+
 
     increment = () => {
         this.props.dispatch({ type: 'INCREMENT' })

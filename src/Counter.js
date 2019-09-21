@@ -1,11 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 class Counter extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             foo: "bar"
+        }
+    }
+    //neither of these lifecycle events are triggered.  What am I Missing?
+    componentDidUpdate(prevProps) {
+        console.log(prevProps.foo, this.props.foo);
+        if (prevProps.foo !== this.props.foo) {
+            this.setState({
+                foo: this.props.foo
+            })
         }
     }
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -16,6 +26,7 @@ class Counter extends React.Component {
             })
         }
     }
+
     increment = () => {
         this.props.dispatch({ type: 'INCREMENT' })
     }

@@ -44,7 +44,7 @@ test('can render with redux with custom initial state', () => {
     expect(getByTestId('count-value').textContent).toBe('2')
 })
 
-fit('can render with redux with custom store', async () => {
+fit('can render with redux with custom store', () => {
     // this is a silly store that can never be changed
     const store = createStore(() => ({ count: 1000 }))
     const { getByTestId, getByText, rerender, debug } = renderWithRedux(<Counter />, {
@@ -54,7 +54,7 @@ fit('can render with redux with custom store', async () => {
     expect(getByTestId('count-value').textContent).toBe('1000');
     fireEvent.click(getByText('-'))
     rerender(<Counter foo="baz" />);
-    await wait(() => { })
+
     expect(getByText("baz")).not.toBeNull();
     expect(getByTestId('count-value').textContent).toBe('1000')
 })
